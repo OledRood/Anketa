@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="styles.css">
+	<title>Anketa</title>
+
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script>
+		$( document ).ready(function() {
+	  $( ".toggle" ).click(function(){ // задаем функцию при нажатиии на элемент с классом slide-toggle
+	    $( "#invisible" ).slideToggle(); // плавно скрываем, или отображаем все элементы <div>
+			});
+		});
+	</script>
+
+
+</head>
+<body>
+
+	<!-- Хранит в себе весь код body -->
+	<div class="container"> 
+		
+		<!-- Заголовок -->
+		<div class="header">
+			<h1 class="headname">Анкета-визитка</h1>
+
+		</div>
+
+			<!-- Страница с инфой -->
+			<div class="info" id="info">
+				<img src="photo.jpg" alt="" height="200" class="avatar"></td>
+
+				<div class="info-text">
+				<h1>О себе</h1>
+		
+				<p>Ремез Олег Романович. Студент очного отделения университета <a href="https://mtuci.ru/?utm_source=google.com&utm_medium=organic&utm_campaign=google.com&utm_referrer=google.com" title="сайт университета" target="_blank" >Мтуси</a>. Планирую стать программистом, а пока делаю данную лабораторную под номеро три. И для красоты заполняю поле текстом и хотя мне не очень нравится фронтенд программирование, но изучение любого языка программирования очень интересное занятие.</p>
+				<div class="callme"><p>Телеграм: <a href="https://t.me" class="info__nickname" target="_blank">@OlegRood</a></p><p>GitHub: <a href="https://github.com/OledRood" target="_blank">Ссылка</a></p></div>
+				
+			</div>
+
+
+			<!-- Страница с портфолио -->
+			<div class="portfolio" id="portfolio">
+				<!-- <input type="button" name="Click" onmousedown="viewDiv()"> -->
+
+			 		<button class="toggle">
+						<span>Открыть портфолио</span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+							class="bi bi-chevron-down" viewBox="0 0 16 16">
+							<path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+							</svg>
+					</button>
+
+					
+<!-- Блок который открываается -->
+				<div id= "invisible"> 
+				<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: skyblue; color: rgb(68, 68, 68);"><span class="hljs-keyword" style="font-weight: 700;">
+from</span> fastapi <span class="hljs-keyword" style="font-weight: 700;">import</span> FastAPI
+app = FastAPI()
+<span class="hljs-meta" style="color: rgb(31, 113, 153);">@app.post("/calculator/{pervoe}/{vtoroe}/{znack}")</span>
+
+<span class="hljs-function"><span class="hljs-keyword" style="font-weight: 700;">def</span> <span class="hljs-title" style="color: rgb(136, 0, 0); font-weight: 700;">calculator</span><span class="hljs-params">(pervoe: str, vtoroe: str, znack: str)</span>:</span>
+    <span class="hljs-keyword" style="font-weight: 700;">return</span> prim(pervoe,  vtoroe, znack)
+
+<span class="hljs-function"><span class="hljs-keyword" style="font-weight: 700;">def</span> <span class="hljs-title" style="color: rgb(136, 0, 0); font-weight: 700;">prim</span><span class="hljs-params">(pervoe, vtoroe, znack)</span>:</span>
+    <span class="hljs-keyword" style="font-weight: 700;">if</span> znack == <span class="hljs-string" style="color: rgb(136, 0, 0);">"+"</span>:
+        <span class="hljs-keyword" style="font-weight: 700;">return</span> plus(pervoe, vtoroe)
+    <span class="hljs-keyword" style="font-weight: 700;">if</span> znack == <span class="hljs-string" style="color: rgb(136, 0, 0);">"-"</span>:
+        <span class="hljs-keyword" style="font-weight: 700;">return</span> minus(pervoe, vtoroe)
+    <span class="hljs-keyword" style="font-weight: 700;">if</span> znack == <span class="hljs-string" style="color: rgb(136, 0, 0);">":"</span>:
+        <span class="hljs-keyword" style="font-weight: 700;">return</span> delenie(pervoe, vtoroe)
+    <span class="hljs-keyword" style="font-weight: 700;">if</span> znack == <span class="hljs-string" style="color: rgb(136, 0, 0);">"*"</span>:
+        <span class="hljs-keyword" style="font-weight: 700;">return</span> mnosh(pervoe, vtoroe)
+    <span class="hljs-keyword" style="font-weight: 700;">return</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">"Ошибка"</span>
+
+<span class="hljs-function"><span class="hljs-keyword" style="font-weight: 700;">def</span> <span class="hljs-title" style="color: rgb(136, 0, 0); font-weight: 700;">delenie</span><span class="hljs-params">(a, b)</span>:</span>
+    <span class="hljs-keyword" style="font-weight: 700;">if</span> b == <span class="hljs-string" style="color: rgb(136, 0, 0);">"0"</span>:
+        <span class="hljs-keyword" style="font-weight: 700;">return</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">"Делить на ноль нельзя"</span>
+    <span class="hljs-keyword" style="font-weight: 700;">return</span> int(a) / int(b)
+
+<span class="hljs-function"><span class="hljs-keyword" style="font-weight: 700;">def</span> <span class="hljs-title" style="color: rgb(136, 0, 0); font-weight: 700;">mnosh</span><span class="hljs-params">(a, b)</span>:</span>
+    <span class="hljs-keyword" style="font-weight: 700;">return</span> int(a) * int(b)
+
+<span class="hljs-function"><span class="hljs-keyword" style="font-weight: 700;">def</span> <span class="hljs-title" style="color: rgb(136, 0, 0); font-weight: 700;">minus</span><span class="hljs-params">(a, b)</span>:</span>
+    <span class="hljs-keyword" style="font-weight: 700;">return</span> int(a) - int(b)
+
+<span class="hljs-function"><span class="hljs-keyword" style="font-weight: 700;">def</span> <span class="hljs-title" style="color: rgb(136, 0, 0); font-weight: 700;">plus</span><span class="hljs-params">(a, b)</span>:</span>
+    <span class="hljs-keyword" style="font-weight: 700;">return</span> int(a) + int(b)
+</pre>
+
+<img class = "screen" src="screen.jpg">
+<img class = "screen" src="screen2.jpg">
+</div>
+
+			
+
+	</div>
+	<script src="main.js"></script>
+
+</body>
+</html>
